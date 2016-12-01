@@ -1,4 +1,4 @@
-f = open('two.txt')
+f = open('day2.txt')
 sumkvm = 0
 lines = f.readlines()
 for line in lines:
