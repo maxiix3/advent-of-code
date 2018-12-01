@@ -6,4 +6,4 @@ This is my solutions for the  [Advent of Code](http://adventofcode.com/) challen
 For the uninitiated, [Advent of Code](http://adventofcode.com/) is a series of
 programming challenges, a new one is released each day until Dec. 25th.
 
-As always I am to lazy to use something else than python.
+I will as earlier try solving everyone in python
