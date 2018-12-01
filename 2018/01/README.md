@@ -1,9 +1,3 @@
----
-lang: 'en-us'
-title: 'Day 1 - Advent of Code 2018'
----
-
-::: {role="main"}
 \-\-- Day 1: Chronal Calibration \-\--
 --------------------------------------
 
@@ -62,7 +56,7 @@ after all of the changes in frequency have been applied?
 
 Your puzzle answer was `479`.
 
-\-\-- Part Two \-\-- {#part2}
+\-\-- Part Two \-\--
 --------------------
 
 You notice that the device repeats the same frequency change list over
