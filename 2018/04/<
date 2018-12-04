@@ -1,0 +1,30 @@
+from collections import defaultdict
+import time
+timesheet = sorted(open('input.txt','r').read().splitlines())
+guards = defaultdict(list)
+times = defaultdict(int)
+
+
+for event in timesheet:
+    time, action = event.split('] ')
+    time = time[12:]
+
+    if 'Guard' in action:
+        guard = int(action.split()[1][1:])
+    elif action == 'falls asleep':
+        startmin = int(time.split(':')[1])
+    elif action == 'wakes up':
+        stopmin = int(time.split(':')[1])
+        for x in range(start, stop):
+            guards[guard].append(x)
+            times[guard] += stop-start
+
+guard, time = max(times.items(), key=lambda i: i[1])
+print(guard)
+
+#part1 = sorted(guards.keys(), key=lambda guard:-sum(guards[guard]))[0]
+#print(part1)
+#
+#for guard in part1:
+#    print(int(guard* guards[guard].index(max(guards[guard]))))
+
