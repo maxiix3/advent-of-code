@@ -1,33 +1,16 @@
 import string as s
-
-def bruteforce_replacement(puzzle):
-    new = len(puzzle)
-    old = 100000000000000000
-    while old != new:
-        old = new
-        for i in range(len(puzzle)-1):
-            if puzzle[i] == puzzle[i].lower():
-                if puzzle[i].upper() == puzzle[i+1]:
-                    puzzle = puzzle[:i]+puzzle[i+1:]
-                    puzzle = puzzle[:i]+puzzle[i+1:]
-                    #puzzle = puzzle[:i+1]+puzzle[i+2:]
-                    #puzzle = puzzle[:i]+puzzle[i+1:]
-                    break
-            elif puzzle[i] == puzzle[i].upper():
-                if puzzle[i].lower() == puzzle[i+1]:
-                    puzzle = puzzle[:i]+puzzle[i+1:]
-                    puzzle = puzzle[:i]+puzzle[i+1:]
-                    #puzzle = puzzle[:i+1]+puzzle[i+2:]
-                    #puzzle = puzzle[:i]+puzzle[i+1:]
-                    break
-        new = len(puzzle)
-    return (len(puzzle))
-
-
 puzzle = open('input5.txt').read()
 #puzzle = "dabAcCaCBAcCcaDA"
 
-#print ("part 1:", puzzle)
+old = 2
+
+while old != puzzle:
+    old = puzzle
+    for i in range(0,26):
+        puzzle = puzzle.replace(chr(ord("a") + i) + chr(ord("A") + i),"")
+        puzzle = puzzle.replace(chr(ord("A") + i) + chr(ord("a") + i),"")
+
+print("Part1:", len(puzzle))
 
 original = puzzle
 shortest = 5000000
@@ -35,8 +18,13 @@ for i in range(26):
     puzzle = original
     puzzle = puzzle.replace(s.ascii_lowercase[i],'')
     puzzle = puzzle.replace(s.ascii_uppercase[i],'')
-    removed = bruteforce_replacement(puzzle)
-    if removed < shortest:
-        shortest = removed
+    while old != puzzle:
+        old = puzzle
+        for i in range(0,26):
+            puzzle = puzzle.replace(chr(ord("a") + i) + chr(ord("A") + i),"")
+            puzzle = puzzle.replace(chr(ord("A") + i) + chr(ord("a") + i),"")
+        if len(puzzle) < shortest:
+            shortest = len(puzzle)
 
 print ("part 2:", shortest)
+
