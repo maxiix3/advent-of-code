@@ -1,5 +1,4 @@
 from collections import defaultdict
-import time
 timesheet = sorted(open('input.txt','r').read().splitlines())
 guards = defaultdict(lambda:[0 for x in range(60)])
 
